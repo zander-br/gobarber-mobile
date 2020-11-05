@@ -22,7 +22,7 @@ interface SignInCredentials {
 interface AuthContextData {
   user: object;
   signIn(credentials: SignInCredentials): Promise<void>;
-  signOut(): Promise<void>;
+  signOut(): void;
 }
 
 const AuthContext = createContext<AuthContextData>({} as AuthContextData);
@@ -51,8 +51,10 @@ export const AuthProvider: React.FC = ({ children }) => {
 
     await AsyncStorage.multiSet([
       ['@GoBarber:token', token],
-      ['@GoBarbar:user', JSON.stringify(user)],
+      ['@GoBarber:user', JSON.stringify(user)],
     ]);
+
+    setData({ token, user });
   }, []);
 
   const signOut = useCallback(async () => {
