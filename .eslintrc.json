@@ -53,7 +53,9 @@
     "react/prop-types": "off",
     "react/jsx-props-no-spreading": "off",
     "@typescript-eslint/ban-types": "off",
-    "no-unused-expressions": "off"
+    "no-unused-expressions": "off",
+    "react/jsx-one-expression-per-line": "off",
+    "camelcase": "off"
   },
   "settings": {
     "import/resolver": {
